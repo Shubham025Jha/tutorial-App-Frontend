@@ -25,3 +25,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+This repo is part 2 for backend repo. This repo uses the rest APIs created by backend and uses it. Also make sure to modify the port you use for backend locally and upadte that in front end to assure things work smooth.
