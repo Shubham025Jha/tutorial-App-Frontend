@@ -1,0 +1,146 @@
+<section
+  class="vh-100 bg-image"
+  style="background-image: url('assets/images/background.jpg')"
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form #registrationForm="ngForm" (ngSubmit)="registerUser()">
+                <div>
+                  <small class="text-danger">{{ msg }}</small>
+                </div>
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    id="UserName"
+                    class="form-control form-control-lg"
+                    placeholder="User Name"
+                    name="userName"
+                    [(ngModel)]="user.userName"
+                    required
+                    #userName="ngModel"
+                    [class.is-invalid]="userName.invalid && userName.touched"
+                  />
+                  <label class="form-label" for="UserName">User Name</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="email"
+                    id="emailId"
+                    class="form-control form-control-lg"
+                    placeholder="emailId"
+                    name="email"
+                    [(ngModel)]="user.emailId"
+                    required
+                    #email="ngModel"
+                    [class.is-invalid]="email.invalid && email.touched"
+                  />
+                  <label class="form-label" for="emailId">Your Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control form-control-lg"
+                    placeholder="Password"
+                    name="password"
+                    [(ngModel)]="user.password"
+                    required
+                    #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched"
+                  />
+                  <label class="form-label" for="password">Password</label>
+                  <div>
+                    <small
+                      class="text-danger"
+                      [class.d-none]="password.valid || password.untouched"
+                      >Password is required field</small
+                    >
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="passwordCheck"
+                    class="form-control form-control-lg"
+                    placeholder="Password"
+                    name="passwordCheck"
+                    [(ngModel)]="pCheck"
+                    #passwordCheck="ngModel"
+                    required
+                    [class.is-invalid]="
+                      passwordCheck.invalid && passwordCheck.touched
+                    "
+                  />
+                  <label class="form-label" for="passwordCheck"
+                    >Repeat your password</label
+                  >
+                  <div>
+                    <small
+                      class="text=danger"
+                      *ngIf="passwordCheck.touched && passwordCheck.invalid"
+                    >
+                      Verifying password is mandatory.
+                    </small>
+                    <small
+                      class="text=danger"
+                      *ngIf="
+                        passwordCheck.touched &&
+                        passwordCheck.value != password.value
+                      "
+                    >
+                      Password did not match!!
+                    </small>
+                  </div>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="userDeclearation"
+                    required
+                  />
+                  <label class="form-check-label" for="userDeclearation">
+                    I agree all statements in
+                    <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="submit"
+                    class="
+                      btn btn-success btn-block btn-lg
+                      gradient-custom-4
+                      text-body
+                    "
+                    [disabled]="!registrationForm.valid"
+                  >
+                    Register
+                  </button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have already an account?
+                  <a href="login" class="fw-bold text-body"
+                    ><u>Login here</u></a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

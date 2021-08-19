@@ -1,0 +1,136 @@
+<section class="h-100 gradient-form" style="background-color: #eee">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img
+                    src="assets/images/lotus.png"
+                    style="width: 185px"
+                    alt="logo"
+                  />
+                  <h4 class="mt-1 mb-5 pb-1">Welcome to Tutorials App!!</h4>
+                </div>
+
+                <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+                  <div>
+                    <small class="text-danger">{{ msg }}</small>
+                  </div>
+
+                  <p>Please login to your account</p>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="UserEmail"
+                      class="form-control"
+                      placeholder="Email address"
+                      name="email"
+                      [(ngModel)]="user.emailId"
+                      required
+                      pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                      #email="ngModel"
+                      [class.is-invalid]="email.invalid && email.touched"
+                    />
+                    <label class="form-label" for="UserEmail"
+                      >Email address</label
+                    >
+                    <div *ngIf="email.errors && email.invalid && email.touched">
+                      <small class="text-danger" *ngIf="email.errors.required"
+                        >Email Id is a required Field</small
+                      >
+                      <small class="text-danger" *ngIf="email.errors.pattern"
+                        >Please provide a valid Email Id</small
+                      >
+                    </div>
+                    <div>
+                      <small id="emailHelp" class="form-text text-muted"
+                        >We'll never share your email with anyone else.</small
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="accountPassword"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="user.password"
+                      required
+                      #password="ngModel"
+                      [class.is-invalid]="password.invalid && password.touched"
+                    />
+                    <label class="form-label" for="accountPassword"
+                      >Password</label
+                    >
+                    <div>
+                      <small
+                        class="text-danger"
+                        [class.d-none]="password.valid || password.untouched"
+                        >Password is required field</small
+                      >
+                    </div>
+                  </div>
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button
+                      class="
+                        btn btn-primary btn-block
+                        fa-lg
+                        gradient-custom-2
+                        mb-3
+                      "
+                      type="submit"
+                    >
+                      Log in
+                    </button>
+                  </div>
+
+                  <div
+                    class="
+                      d-flex
+                      align-items-center
+                      justify-content-center
+                      pb-4
+                    "
+                  >
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger"
+                      (click)="goToRegistration()"
+                    >
+                      Create new
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">These are more than just Articles</h4>
+                <p class="small mb-0">
+                  Tutorials are the most basic and utmost important step to
+                  master a technology or subject.<br />
+                  This is <b>Base Camp</b> to conquer the top of <b>Everest</b
+                  ><br />
+                  <br />
+                  As rightly said <br />
+                  <strong>
+                    <b>
+                      <i>Minutes on tutorials can save hours on debuging!!</i>
+                    </b>
+                  </strong>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

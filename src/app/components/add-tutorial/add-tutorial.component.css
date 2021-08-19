@@ -1,0 +1,9 @@
+.submit-form {
+  max-width: 400px;
+  margin: auto;
+}
+.flt-strt {
+  float: left;
+  width: 50%;
+  margin-top: 18%;
+}

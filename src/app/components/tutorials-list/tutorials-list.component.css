@@ -1,0 +1,13 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.row {
+  float: left;
+  padding: 2px;
+}
+#specificTutorial {
+  bottom: 5px;
+}

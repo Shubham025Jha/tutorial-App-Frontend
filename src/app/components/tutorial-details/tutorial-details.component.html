@@ -1,0 +1,79 @@
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('assets/images/blackBg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  "
+>
+  <div>
+    <div
+      *ngIf="currentTutorial.id"
+      class="edit-form"
+      class="bucket"
+      style="color: white"
+    >
+      <h4>Tutorial</h4>
+      <form>
+        <div class="form-group">
+          <label for="title"><b>Title</b> </label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentTutorial.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentTutorial.description"
+            name="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentTutorial.published ? "Published" : "Pending" }}
+        </div>
+      </form>
+
+      <button
+        class="m-3 btn btn-sm btn-primary"
+        *ngIf="currentTutorial.published"
+        (click)="updatePublished(false)"
+      >
+        UnPublish
+      </button>
+      <button
+        class="m-3 btn btn-sm btn-primary"
+        *ngIf="!currentTutorial.published"
+        (click)="updatePublished(true)"
+      >
+        Publish
+      </button>
+
+      <button class="m-3 btn btn-sm btn-danger" (click)="deleteTutorial()">
+        Delete
+      </button>
+
+      <button
+        class="m-3 btn btn-sm btn-success"
+        type="submit"
+        (click)="updateTutorial()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+
+    <div *ngIf="!currentTutorial.id">
+      <br />
+      <p>Cannot access this Tutorial...</p>
+    </div>
+  </div>
+</section>

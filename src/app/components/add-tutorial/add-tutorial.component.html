@@ -1,0 +1,51 @@
+<section
+  class="vh-100 bg-image"
+  style="background-image: url('assets/images/HomePageBg.png')"
+>
+  <div>
+    <h4 class="display-4" style="color: rgb(51, 34, 99)">
+      <b>Add the Tutorials Detail Below.</b>
+    </h4>
+  </div>
+  <div class="flt-strt">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="tutorial.title"
+            name="title"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="tutorial.description"
+            name="description"
+          />
+        </div>
+
+        <div style="padding: 2rem">
+          <button (click)="saveTutorial()" class="btn btn-success">
+            Save Tutorial
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4>Tutorial was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">
+          Add Another
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

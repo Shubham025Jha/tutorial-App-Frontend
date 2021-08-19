@@ -1,0 +1,7 @@
+.header {
+  overflow: auto;
+}
+.header h1 {
+  float: right;
+  margin-right: 73%;
+}
